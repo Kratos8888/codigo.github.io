@@ -1,6 +1,6 @@
 // Component that detects and emits events for touch gestures
 
-AFRAME.registerComponent("codigo", {
+AFRAME.registerComponent("gesture-detector", {
   schema: {
     element: { default: "" }
   },
