@@ -7,6 +7,7 @@
 	<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 	<script src="gesture-detector.js"></script>
 	<script src="gesture-handler.js"></script>
+	<audio id="sound" src""
 	</head>
 	
 	<body style="margin : 0px; overflow: hidden">
@@ -16,7 +17,7 @@ id="scene">
       	
       <a-assets>
         
-         <a-asset-item id="modelo" src="medusa.glb"></a-asset-item>
+         <a-asset-item id="modelo" src="Tortuga.glb"></a-asset-item>
         
 	      <audio id=sound" src="" preload="auto"></audio>
       
@@ -36,6 +37,21 @@ id="scene">
 			<a-entity camera></a-entity>
 			
 		</a-scene>
+
+			<script>
+			AFRAME.registerComponent('soundhandler', {
+				tick: function () {
+					   var entity = document.querySelector('[sound]');
+					 if (document.querySelector('a-marker').object3D.visible == true) {
+						entity.components.sound.playSound();
+					} else {
+						entity.components.sound.pauseSound();
+					}
+
+				 }
+			});
+		</script>
+
 		
 	</body>
 </html>
