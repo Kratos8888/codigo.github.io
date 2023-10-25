@@ -6,6 +6,7 @@
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 <script src="gesture-handler.js"></script>
 <script src="gesture-detector.js"></script>
+<audio id="sound" src=""
 
 
 </head>
@@ -23,10 +24,27 @@
 	
 
 	<a-marker type="barcode" value="33" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
-	<a-entity gltf-model="#modelo" scale="20 20 10" class="clickable" gesture-handler></a-entity>
+	<a-entity gltf-model="#modelo" scale="20 20 10" class="clickable" gesture-handler soundhandeler></a-entity>
 	</a-marker>
 
 	<a-entity camera></a-entity>
 	</a-scene>
+
+	<script>
+			AFRAME.registerComponent('soundhandler', {
+				tick: function () {
+					   var entity = document.querySelector('[sound]');
+					 if (document.querySelector('a-marker').object3D.visible == true) {
+						entity.components.sound.playSound();
+					} else {
+						entity.components.sound.pauseSound();
+					}
+
+				 }
+			});
+		</script>
+
+	
 </body>
 </html>
+
